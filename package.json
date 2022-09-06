@@ -1,0 +1,20 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "Michael S Fall 2022 React Coursework",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shlarry6/React.js.git"
+  },
+  "author": "Michael J. Sears",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shlarry6/React.js/issues"
+  },
+  "homepage": "https://github.com/Shlarry6/React.js#readme"
+}
