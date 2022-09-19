@@ -1,0 +1,19 @@
+
+.highlight {
+	/* background: #eee url(../../Assets/bg-highlight.jpg) repeat-x left bottom; */
+	background: #eee;
+    border-bottom: 1px solid #fff;
+}
+.highlight .clearfix {
+	width: 940px;
+}
+.highlight h1 {
+	font-size: 32px;
+	line-height: 36px;
+	padding: 12px 0 12px;
+	text-transform: none;
+}
+.highlight h2 {
+	color: #57614e;
+	margin-bottom: 24px;
+}
