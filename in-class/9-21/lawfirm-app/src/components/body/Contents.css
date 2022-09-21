@@ -1,0 +1,263 @@
+#contents {
+	padding-bottom: 24px;
+}
+#contents > div.clearfix:first-child {
+	width: 940px;
+	padding: 30px 10px 0;
+}
+#contents img {
+	border: 1px solid rgba(231, 231, 231, 0.8);
+}
+h1 {
+	color: #57614e;
+	font: 29px/30px "Times New Roman", Times, serif;
+	margin: 0 0 12px;
+	text-transform: uppercase;
+}
+h2 {
+	color: #626262;
+	font: 19px/24px "Times New Roman", Times, serif;
+	letter-spacing: 2px;
+	margin: 0;
+	text-transform: uppercase;
+}
+p {
+	color: #626262;
+	font: 14px/24px Arial, Helvetica, sans-serif;
+	margin: 0 0 24px;
+}
+p a {
+	color: #626262;
+}
+p a:hover {
+	color: #333333;
+}
+.main {
+	float: left;
+	min-height: 960px;
+	width: 600px;
+	padding: 0 0 0 32px;
+}
+.main h1 {
+	margin-bottom: 18px;
+}
+.main h2 {
+	margin-bottom: 12px;
+}
+.main h1 + h2 {
+	margin: 0;
+}
+.main h1 + div.frame3 {
+	margin-top: 36px;
+}
+.main > .section {
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	width: 600px;
+	margin-bottom: 16px;
+	margin-left: -28px;
+	padding-left: 30px;
+}
+.main > .last-child, .sidebar ul li.last-child {
+	background: none;
+}
+.main > .section ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.main > .section ul li {
+	display: inline-block;
+	margin: 0 0 24px;
+}
+.main > .section ul li .frame4 {
+	float: left;
+	margin-bottom: 1px;
+	margin-right: 20px;
+}
+.main > .section ul li p {
+	margin: 6px 0 0;
+}
+.main > .section ul li p b {
+	display: block;
+	text-transform: uppercase;
+}
+.practices {
+	list-style: none;
+	display: inline-block;
+	width: 640px;
+	margin: 0 0 0 -20px;
+	padding: 0;
+}
+.practices li {
+	float: left;
+	margin: 0 20px 36px;
+	position: relative;
+}
+.practices li a {
+	text-decoration: none;
+}
+.practices li a span {
+	background-color: #696969;
+	color: #e2e2e2;
+	display: block;
+	font: 19px/46px "Times New Roman", Times, serif;
+	height: 46px;
+	width: 265px;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 21px;
+	left: 8px;
+	*left: 6px;
+}
+.practices li a:hover span {
+	background-color: #393939;
+}
+.sidebar {
+	float: left;
+	width: 290px;
+	padding-right: 18px;
+}
+.sidebar > div {
+	margin: 0 0 30px;
+}
+.sidebar > div h2 {
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	margin: 0 0 6px;
+	padding-bottom: 18px;
+}
+.sidebar > div:first-child h2 {
+	margin-bottom: 0;
+	margin-top: 6px;
+}
+.sidebar > div p {
+	margin: 0;
+	padding-bottom: 24px;
+	padding-right: 30px;
+}
+.sidebar > div p span {
+	display: block;
+	text-align: right;
+}
+.sidebar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.sidebar ul li {
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	display: inline-block;
+	min-height: 36px;
+	width: 280px;
+	padding: 6px 0 10px 10px;
+}
+.sidebar ul li > a span.box {
+	float: left;
+	margin-right: 20px;
+}
+.sidebar ul li a {
+	color: #755c02;
+	font: 13px/24px Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+.sidebar ul li a:hover {
+	color: #728063;
+}
+.sidebar ul li img.box {
+	float: left;
+	margin: 4px 20px 12px 0;
+}
+.sidebar .contact li {
+	background: none;
+	padding-left: 0;
+}
+.sidebar .contact li p {
+	padding: 0  0 0 30px;
+}
+.sidebar .contact li p span.home {
+	float: left;
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	margin-left: -30px;
+	padding: 0;
+}
+.sidebar .contact li p em {
+	display: block;
+	font-size: 19px;
+	font-style: normal;
+}
+.news {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.news > li {
+	background-position: 0 -238px;
+	display: inline-block;
+	height: 269px;
+	width: 578px;
+	margin-bottom: 12px;
+	padding: 6px 22px 0 6px;
+}
+.news > li .box {
+	float: left;
+	margin-right: 20px;
+}
+.news > li p.info, .details p.info {
+	font-size: 11px;
+	margin: 0;
+	padding-top: 24px;
+}
+.author {
+	color: #755c02;
+}
+.news > li h2, .details h2 {
+	color: #728063;
+	letter-spacing: 0;
+	margin-bottom: 24px;
+}
+.news > li .more {
+	float: right;
+}
+.images {
+	float: left;
+	width: 210px;
+	margin-right: 20px;
+	padding-right: 10px;
+}
+#contents .images img.box {
+	border: 5px solid #fff;
+}
+.details {
+	float: left;
+	width: 360px;
+}
+.details p.info {
+	padding-top: 0;
+}
+.message label {
+	color: #626262;
+	display: block;
+	font: 13px/24px Arial, Helvetica, sans-serif;
+}
+.message input[type='text'] {
+	height: 24px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+}
+.message textarea {
+	height: 110px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+	overflow: auto;
+	resize: none;
+}
+.message input[type='submit'] {
+	cursor: pointer;
+	border: none;
+}
