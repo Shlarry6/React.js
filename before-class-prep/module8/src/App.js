@@ -11,7 +11,7 @@ function App() {
       return [...prevUserList, { name: userName, age: userAge }];
     });
   };
-
+ 
   return (
     <div>
       <NewUser onNewUser={newUserHandler} />
