@@ -1,0 +1,17 @@
+.testimonial, .main, .sidebar > div h2, .sidebar ul li, .main > .section {
+	background-image: url(../../Assets/border.png);
+	background-position: left top;
+	background-repeat: repeat-y;
+}
+.testimonial {
+	float: right;
+	width: 260px;
+	margin-left: 20px;
+	padding: 24px 20px;
+}
+.testimonial > span {
+	color: #626262;
+	display: block;
+	font: 14px/24px Arial, Helvetica, sans-serif;
+	text-align: right;
+}
