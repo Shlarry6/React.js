@@ -13,17 +13,19 @@ const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const setProductPerCategory = () => {
+  // Method takes products array, loops through each pushing only 1 from each category to new state array categories.
+  const setProductPerCategory = (prods) => {
     let categoriesArray = [];
-    products.map((product) => {
+    prods.map((product) => {
       let category = product.category;
       if (!categoriesArray.some((cat) => cat.category === category)) {
+        // checks if any of that category already exists in our list
         categoriesArray.push(product);
       }
     });
     setCategories(categoriesArray);
   };
-
+  // function for counting products per category for display in component.
   const countProductsByCategory = (category) => {
     let counter = 0;
     products.map((product) => {
@@ -33,13 +35,13 @@ const CategoryList = () => {
     });
     return counter;
   };
-
+  // API call to dummyjson to get all 100 products. saves to products state.
   const getProducts = async () => {
     try {
       let products = await fetch("https://dummyjson.com/products?limit=100");
       products = await products.json();
       setProducts(products.products);
-      setProductPerCategory();
+      setProductPerCategory(products.products);
     } catch (error) {
       console.log(error);
     }

@@ -1,12 +1,35 @@
+import { useState, useEffect } from "react";
+
 import Layout from "./components/Layout/Layout";
 import CategoryList from "./components/Categories/CategoryList";
+import ProductsList from "./components/Products/ProductsList";
+import FeaturedProducts from "./components/Products/FeaturedProducts";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      let products = await fetch("https://dummyjson.com/products?limit=100");
+      products = await products.json();
+      setProducts(products.products);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   let content;
 
   switch (window.location.pathname) {
     case "/":
-      content = <></>;
+      content = 
+        <>
+          <FeaturedProducts />
+        </>;
       break;
     case "/categories":
       content = (
