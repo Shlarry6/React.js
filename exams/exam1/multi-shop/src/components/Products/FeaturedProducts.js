@@ -21,9 +21,9 @@ const FeaturedProducts = () => {
   }, []);
 
   return (
-    <div class="container-fluid pt-5 pb-3">
-      <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
-        <span class="bg-secondary pr-3">Featured Products</span>
+    <div className="container-fluid pt-5 pb-3">
+      <h2 className="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span className="bg-secondary pr-3">Featured Products</span>
       </h2>
       <ProductsList
         products={featured}

@@ -11,25 +11,20 @@ const formatCategoryNames = (name) => {
 
 const CategoryMenu = () => {
     const [categoryNames, setCategoryNames] = useState([]);
-    const [fCategoryNames, setFCategoryNames] = useState([]);
 
     const getCategoryNames = async () => {
         // API call for get all category names from dummyjson.com
-        const formatted = []; // empty category array to push formatted category names.
         try {
           // try catch block incase we have errors in our async await function call
           let categories = await fetch("https://dummyjson.com/products/categories"); // calling API endpoint product categories
           categories = await categories.json(); // converting the promise response to json().
-          categories.map((name) => {
-            // looping through each category name in json array
-            formatted.push(formatCategoryNames(name)); // pushing the formatted category to the categories array
-          });
-          setFCategoryNames(formatted)  // using state setting to set formatted category names to state
           setCategoryNames(categories); // using state setting to set category names to categories array
         } catch (error) {
           console.log(error); // logging any potential errors.
         }
       };
+
+      
 
       useEffect(() => {
         getCategoryNames();
@@ -54,13 +49,13 @@ const CategoryMenu = () => {
         style={{ width: `calc(100% - 30px)`, zIndex: 999 }}
       >
         <div className="navbar-nav w-100">
-          {fCategoryNames.map((name, index) => (
+          {categoryNames.map((name, index) => (
             <a
               key={index}
               href={`/products/category/${name}`}
               className="nav-item nav-link"
             >
-              {name}
+              {formatCategoryNames(name)}
             </a>
           ))}
         </div>

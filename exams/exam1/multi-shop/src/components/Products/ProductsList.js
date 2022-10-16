@@ -5,6 +5,7 @@ const ProductsList = (props) => {
     <div className={props.classes}>
       {props.products.map((product) => (
         <ProductTile
+          key={product.id}
           classes={props.tileClasses}
           price={product.price}
           title={product.title}
