@@ -4,10 +4,9 @@ import Layout from "./components/Layout/Layout";
 import CategoryList from "./components/Categories/CategoryList";
 import FeaturedProducts from "./components/Products/FeaturedProducts";
 import ProductsByCategory from "./components/Products/ProductsByCategory";
+import ProductDetail from "./components/Products/ProductDetail";
 
 const App = () => {
-  const rxCategory = window.location.pathname.match(/\/products\/category\/.*/)?.input;
-  const rxEndOfPath = rxCategory.match(/(?<=category\/)(\S+)/);
 
   useEffect(() => {
   }, []);
@@ -28,14 +27,22 @@ const App = () => {
         </>
       );
       break;
-    case rxCategory:
+    case window.location.pathname.match(/\/products\/category\/.*/)?.input:
+      const endOfPath = window.location.pathname.match(/(?<=category\/)(\S+)/);
       content = (
         <>
-          <ProductsByCategory category={rxEndOfPath[0]}
+          <ProductsByCategory category={endOfPath[0]}
           classes="container-fluid"/>
         </>
       );
       break;
+      case "/test":
+        content = (
+          <>
+            <ProductDetail id="1"/>
+          </>
+        );
+        break;
     default:
       content = <div>The content you requested could not be found.</div>;
   }
