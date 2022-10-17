@@ -36,10 +36,11 @@ const App = () => {
         </>
       );
       break;
-      case "/test":
+      case window.location.pathname.match(/\/products\/.*/)?.input:
+        const id = window.location.pathname.match(/(?<=products\/)(\S+)/);
         content = (
           <>
-            <ProductDetail id="1"/>
+            <ProductDetail id={id[0]}/>
           </>
         );
         break;

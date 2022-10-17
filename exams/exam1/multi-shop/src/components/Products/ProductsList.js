@@ -11,6 +11,7 @@ const ProductsList = (props) => {
           title={product.title}
           id={product.id}
           thumbnail={product.thumbnail}
+          href={`/products/${product.id}`}
         />
       ))}
     </div>

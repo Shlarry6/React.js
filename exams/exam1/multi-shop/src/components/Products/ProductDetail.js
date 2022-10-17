@@ -1,17 +1,42 @@
 import { useState, useEffect } from "react";
+const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductDetail = (props) => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState(defaultProduct);
+  const [display, setDisplay] = useState();
 
   const getProductDataFromId = async () => {
     try {
       let response = await fetch(`https://dummyjson.com/products/${props.id}`);
       response = await response.json();
       setProduct(response);
-      console.log(response);
+      setDisplay(response.images[2]);
     } catch (error) {
       console.log(error);
-    };
+    }
+  };
+
+  const carouselNextImageHandler = () => {
+    let length = product.images.length - 1;
+    if (product.images.indexOf(display) > length - 1) {
+      setDisplay(() => {
+        return product.images[0];
+      });
+    } else {
+      let index = product.images.indexOf(display);
+      setDisplay(() => {
+        return product.images[index + 1];
+      });
+    }
+  };
+  const carouselPrevImageHandler = () => {
+    let length = product.images.length - 1;
+    if (product.images.indexOf(display) < 1) {
+      setDisplay(product.images[length - 1]);
+    } else {
+      let index = product.images.indexOf(display);
+      setDisplay(product.images[index - 1]);
+    }
   };
 
   useEffect(() => {
@@ -29,20 +54,15 @@ const ProductDetail = (props) => {
             data-ride="carousel"
           >
             <div className="carousel-inner bg-light">
-                {product.images.map((image, index) => (
-                    <div className="carousel-item active" key={index}>
-                        <img
-                            className="w-100 h-100"
-                            src={image}
-                            alt="Image"
-                        />
-                    </div>
-                ))}
+              <div className="carousel-item active">
+                <img className="w-100 h-100" src={display} alt="Image" />
+              </div>
             </div>
             <a
               className="carousel-control-prev"
               href="#product-carousel"
               data-slide="prev"
+              onClick={carouselPrevImageHandler}
             >
               <i className="fa fa-2x fa-angle-left text-dark"></i>
             </a>
@@ -50,6 +70,7 @@ const ProductDetail = (props) => {
               className="carousel-control-next"
               href="#product-carousel"
               data-slide="next"
+              onClick={carouselNextImageHandler}
             >
               <i className="fa fa-2x fa-angle-right text-dark"></i>
             </a>
@@ -70,9 +91,7 @@ const ProductDetail = (props) => {
               <small className="pt-1">(99 Reviews)</small>
             </div>
             <h3 className="font-weight-semi-bold mb-4">{`$${product.price}.00`}</h3>
-            <p className="mb-4">
-                    {product.description}
-            </p>
+            <p className="mb-4">{product.description}</p>
             <div className="d-flex mb-3">
               <strong className="text-dark mr-3">Sizes:</strong>
               <form>
@@ -270,27 +289,7 @@ const ProductDetail = (props) => {
             <div className="tab-content">
               <div className="tab-pane fade show active" id="tab-pane-1">
                 <h4 className="mb-3">Product Description</h4>
-                <p>
-                  Eos no lorem eirmod diam diam, eos elitr et gubergren diam
-                  sea. Consetetur vero aliquyam invidunt duo dolores et duo sit.
-                  Vero diam ea vero et dolore rebum, dolor rebum eirmod
-                  consetetur invidunt sed sed et, lorem duo et eos elitr,
-                  sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed
-                  tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing,
-                  eos dolores sit no ut diam consetetur duo justo est, sit
-                  sanctus diam tempor aliquyam eirmod nonumy rebum dolor
-                  accusam, ipsum kasd eos consetetur at sit rebum, diam kasd
-                  invidunt tempor lorem, ipsum lorem elitr sanctus eirmod
-                  takimata dolor ea invidunt.
-                </p>
-                <p>
-                  Dolore magna est eirmod sanctus dolor, amet diam et eirmod et
-                  ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem
-                  tempor. Gubergren amet amet labore sadipscing clita clita diam
-                  clita. Sea amet et sed ipsum lorem elitr et, amet et labore
-                  voluptua sit rebum. Ea erat sed et diam takimata sed justo.
-                  Magna takimata justo et amet magna et.
-                </p>
+                <p>{product.description}</p>
               </div>
               <div className="tab-pane fade" id="tab-pane-2">
                 <h4 className="mb-3">Additional Information</h4>
