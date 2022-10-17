@@ -1,5 +1,4 @@
 const ProductTile = (props) => {
-  let discountPercent = 0; // will need to update this
   return (
     <>
       <div className={props.classes}>

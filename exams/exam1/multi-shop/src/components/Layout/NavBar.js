@@ -1,11 +1,14 @@
 import CategoryMenu from "../Categories/CategoryMenu";
+import ProductContextProvider from "../../Store/ProductContextProvider";
 
 const NavBar = () => {
   return (
     <>
       <div className="container-fluid bg-dark mb-30">
         <div className="row px-xl-5">
-         <CategoryMenu />
+          <ProductContextProvider>
+            <CategoryMenu />
+          </ProductContextProvider>
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
               <a href="/" className="text-decoration-none d-block d-lg-none">

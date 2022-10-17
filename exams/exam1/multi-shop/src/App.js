@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-
+import ProductContextProvider from './Store/ProductContextProvider';
 import Layout from "./components/Layout/Layout";
 import CategoryList from "./components/Categories/CategoryList";
 import FeaturedProducts from "./components/Products/FeaturedProducts";
@@ -7,24 +6,20 @@ import ProductsByCategory from "./components/Products/ProductsByCategory";
 import ProductDetail from "./components/Products/ProductDetail";
 
 const App = () => {
-
-  useEffect(() => {
-  }, []);
-
   let content;
 
   switch (window.location.pathname) {
     case "/":
       content = 
-        <>
+        <ProductContextProvider>
           <FeaturedProducts />
-        </>;
+        </ProductContextProvider>;
       break;
     case "/categories":
       content = (
-        <>
+        <ProductContextProvider>
           <CategoryList />
-        </>
+        </ProductContextProvider>
       );
       break;
     case window.location.pathname.match(/\/products\/category\/.*/)?.input:
