@@ -6,7 +6,8 @@ import FeaturedProducts from "./components/Products/FeaturedProducts";
 import ProductsByCategory from "./components/Products/ProductsByCategory";
 
 const App = () => {
-  const category = 'smartphones'
+  const rxCategory = window.location.pathname.match(/\/products\/category\/.*/)?.input;
+  const rxEndOfPath = rxCategory.match(/(?<=category\/)(\S+)/);
 
   useEffect(() => {
   }, []);
@@ -27,10 +28,10 @@ const App = () => {
         </>
       );
       break;
-    case `/products/category/${category}`:
+    case rxCategory:
       content = (
         <>
-          <ProductsByCategory category="smartphones"
+          <ProductsByCategory category={rxEndOfPath[0]}
           classes="container-fluid"/>
         </>
       );

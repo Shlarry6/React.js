@@ -1,4 +1,9 @@
 const ProductDetail = (props) => {
+
+    const getProductDataFromId = () => {
+        
+    };
+
     return(
         <>
 
