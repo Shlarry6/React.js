@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import ProductContext from "../../Store/product-context";
 const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductDetail = (props) => {
   const [product, setProduct] = useState(defaultProduct);
+  // const ctxProduct = useContext(ProductContext);
   const [display, setDisplay] = useState();
+
 
   const getProductDataFromId = async () => {
     try {
@@ -18,6 +21,7 @@ const ProductDetail = (props) => {
 
   const carouselNextImageHandler = () => {
     let length = product.images.length - 1;
+    console.log(product);
     if (product.images.indexOf(display) > length - 1) {
       setDisplay(() => {
         return product.images[0];

@@ -1,6 +1,10 @@
 import ProductTile from "./ProductTile";
+import { useContext } from 'react';
+import ProductContext from "../../Store/product-context";
 
 const ProductsList = (props) => {
+  const ctxProduct = useContext(ProductContext);
+
   return (
     <div className={props.classes}>
       {props.products.map((product) => (
@@ -12,6 +16,7 @@ const ProductsList = (props) => {
           id={product.id}
           thumbnail={product.thumbnail}
           href={`/products/${product.id}`}
+          onClick={ctxProduct.setProductById}
         />
       ))}
     </div>

@@ -25,18 +25,18 @@ const App = () => {
     case window.location.pathname.match(/\/products\/category\/.*/)?.input:
       const endOfPath = window.location.pathname.match(/(?<=category\/)(\S+)/);
       content = (
-        <>
+        <ProductContextProvider>
           <ProductsByCategory category={endOfPath[0]}
           classes="container-fluid"/>
-        </>
+        </ProductContextProvider>
       );
       break;
       case window.location.pathname.match(/\/products\/.*/)?.input:
         const id = window.location.pathname.match(/(?<=products\/)(\S+)/);
         content = (
-          <>
+          <ProductContextProvider>
             <ProductDetail id={id[0]}/>
-          </>
+          </ProductContextProvider>
         );
         break;
     default:

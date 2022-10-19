@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import ProductContext from "./product-context";
+// const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductContextProvider = (props) => {
     const [categoryNames, setCategoryNames] = useState([]);
     const [featured, setFeatured] = useState([]);
     const [products, setProducts] = useState([]);
+    // const [product, setProduct] = useState(defaultProduct);
+    // const [display, setDisplay] = useState(defaultProduct.images[0]);
 
     const formatCategoryNames = (name) => {
         name = name.toString(); // converting name to string to avoid error with blow functions
@@ -41,6 +44,28 @@ const ProductContextProvider = (props) => {
         setCategoryNames(categoriesArray);
     };
 
+    // setting featured products from productList saved from dummyjson.com
+    const setFeaturedProducts = (productList) => {
+        let featuredArray = [];
+        let counter = 0;
+        for (var i = 0; i < productList.length; i+= 7) {
+            if (counter < 8) {
+                featuredArray.push(productList[i]);
+                counter++;
+            };
+        };
+        setFeatured(featuredArray);
+    };
+
+    // // set the product by id from product list
+    // const setProductById =  () => {
+    //     let id = '10';
+    //     const cProduct = products.find(prod => prod.id === id);
+    //     console.log("product", cProduct)
+    //     setProduct(cProduct);
+    //     setDisplay(cProduct.images[0]);
+    // };
+
     //API get request for all products from dummyjson.com
     const getProducts = async () => {
         try {
@@ -48,17 +73,8 @@ const ProductContextProvider = (props) => {
             products = await products.json();
             setProducts(products.products);
             setCategoriesByProductsList(products.products);
-        } catch (error) {
-            console.log(error);
-        };
-    };
-
-    // API call to get featured products from dummyjson.com
-    const getFeaturedProducts = async () => {
-        try {
-            let featured = await fetch('https://dummyjson.com/products?limit=8&skip=7');
-            featured = await featured.json();
-            setFeatured(featured.products);
+            setFeaturedProducts(products.products);
+            // setProductById();
         } catch (error) {
             console.log(error);
         };
@@ -66,15 +82,16 @@ const ProductContextProvider = (props) => {
 
     useEffect(() => {
         getProducts();
-        getFeaturedProducts();
     }, []);
 
     const productContext = {
         categoryNames: categoryNames,
         featuredProducts: featured,
         products: products,
+        // product: product,
+        // display: display,
         formatCategoryNames: formatCategoryNames,
-        countProductsByCategory: countProductsByCategory
+        countProductsByCategory: countProductsByCategory,
     };
 
     return (
