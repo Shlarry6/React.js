@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import ProductContext from "./product-context";
-// const defaultProduct = { images: [], title: "", description: "" };
+const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductContextProvider = (props) => {
     const [categoryNames, setCategoryNames] = useState([]);
     const [featured, setFeatured] = useState([]);
     const [products, setProducts] = useState([]);
-    // const [product, setProduct] = useState(defaultProduct);
+    const [product, setProduct] = useState(defaultProduct);
     // const [display, setDisplay] = useState(defaultProduct.images[0]);
 
     const formatCategoryNames = (name) => {
@@ -57,27 +57,32 @@ const ProductContextProvider = (props) => {
         setFeatured(featuredArray);
     };
 
-    // // set the product by id from product list
-    // const setProductById =  () => {
-    //     let id = '10';
-    //     const cProduct = products.find(prod => prod.id === id);
-    //     console.log("product", cProduct)
-    //     setProduct(cProduct);
-    //     setDisplay(cProduct.images[0]);
-    // };
+    const setProductById = (id) => {
+        console.log("productID:", id);
+        let cProduct = products.filter(prod => prod.id === id);
+        console.log(cProduct);
+        setProduct(cProduct);
+    };
 
     //API get request for all products from dummyjson.com
     const getProducts = async () => {
         try {
-            let products = await fetch('https://dummyjson.com/products?limit=100');
-            products = await products.json();
-            setProducts(products.products);
-            setCategoriesByProductsList(products.products);
-            setFeaturedProducts(products.products);
-            // setProductById();
+            console.log(products.length);
+            if (products.length === 0) {
+                let prods = await fetch('https://dummyjson.com/products?limit=100');
+                prods = await prods.json();
+                setStates(prods.products);
+            };
         } catch (error) {
             console.log(error);
         };
+    };
+
+    const setStates = (products) => {
+        console.log("setting");
+        setProducts(products);
+        setCategoriesByProductsList(products);
+        setFeaturedProducts(products);
     };
 
     useEffect(() => {
@@ -88,10 +93,11 @@ const ProductContextProvider = (props) => {
         categoryNames: categoryNames,
         featuredProducts: featured,
         products: products,
-        // product: product,
+        product: product,
         // display: display,
         formatCategoryNames: formatCategoryNames,
         countProductsByCategory: countProductsByCategory,
+        setProductById: setProductById
     };
 
     return (

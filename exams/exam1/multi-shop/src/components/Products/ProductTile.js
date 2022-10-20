@@ -24,6 +24,7 @@ const ProductTile = (props) => {
             <a
               className="h6 text-decoration-none text-truncate"
               href={`/products/${props.id}`}
+              onClick={props.onClick}
             >
               {props.title}
             </a>

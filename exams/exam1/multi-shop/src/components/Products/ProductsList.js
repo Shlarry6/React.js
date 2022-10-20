@@ -16,7 +16,7 @@ const ProductsList = (props) => {
           id={product.id}
           thumbnail={product.thumbnail}
           href={`/products/${product.id}`}
-          onClick={ctxProduct.setProductById}
+          onClick={() => {ctxProduct.setProductById(product.id);}}
         />
       ))}
     </div>

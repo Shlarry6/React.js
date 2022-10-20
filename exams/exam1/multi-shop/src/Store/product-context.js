@@ -4,10 +4,11 @@ const ProductContext = React.createContext({
     categoryNames: [],
     featuredProducts: [],
     products: [],
-    // product: {},
+    product: {},
     // display: '',
     formatCategoryNames: () => {},
     countProductsByCategory: () => {},
+    setProductById: () => {}
 });
 
 export default ProductContext;
