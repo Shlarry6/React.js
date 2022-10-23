@@ -3,6 +3,7 @@ import ProductContext from "../../Store/product-context";
 
 const CategoryMenu = () => {
   const ctxCategories = useContext(ProductContext);
+  const categoryNames = ctxCategories.getCategories();
 
   return (
     <div className="col-lg-3 d-none d-lg-block">
@@ -23,7 +24,7 @@ const CategoryMenu = () => {
         style={{ width: `calc(100% - 30px)`, zIndex: 999 }}
       >
         <div className="navbar-nav w-100">
-          {ctxCategories.categoryNames.map((name, index) => (
+          {categoryNames.map((name, index) => (
             <a
               key={index}
               href={`/products/category/${name.category}`}

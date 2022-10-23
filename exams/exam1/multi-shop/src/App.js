@@ -11,39 +11,31 @@ const App = () => {
   switch (window.location.pathname) {
     case "/":
       content = 
-        <ProductContextProvider>
-          <FeaturedProducts />
-        </ProductContextProvider>;
+        <FeaturedProducts />
       break;
     case "/categories":
       content = (
-        <ProductContextProvider>
-          <CategoryList />
-        </ProductContextProvider>
+        <CategoryList />
       );
       break;
     case window.location.pathname.match(/\/products\/category\/.*/)?.input:
       const endOfPath = window.location.pathname.match(/(?<=category\/)(\S+)/);
       content = (
-        <ProductContextProvider>
-          <ProductsByCategory category={endOfPath[0]}
-          classes="container-fluid"/>
-        </ProductContextProvider>
+        <ProductsByCategory category={endOfPath[0]}
+        classes="container-fluid"/>
       );
       break;
       case window.location.pathname.match(/\/products\/.*/)?.input:
         const id = window.location.pathname.match(/(?<=products\/)(\S+)/);
         content = (
-          <ProductContextProvider>
-            <ProductDetail id={id[0]}/>
-          </ProductContextProvider>
+          <ProductDetail id={id[0]}/>
         );
         break;
     default:
       content = <div>The content you requested could not be found.</div>;
   }
 
-  return <Layout>{content}</Layout>;
+  return <ProductContextProvider><Layout>{content}</Layout></ProductContextProvider>;
 };
 
 export default App;

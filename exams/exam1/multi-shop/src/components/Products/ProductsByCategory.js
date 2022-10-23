@@ -1,26 +1,12 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import ProductContext from "../../Store/product-context";
 import ProductSideBar from "./ProductSidebar";
 import ProductsList from "./ProductsList";
 
+
 const ProductsByCategory = (props) => {
-  const [products, setProducts] = useState([]);
-
-  const getProductsByCategory = async () => {
-    try {
-      let products = await fetch(
-        `https://dummyjson.com/products/category/${props.category}`
-      );
-      products = await products.json();
-      setProducts(products.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-  useEffect(() => {
-    getProductsByCategory();
-  }, []);
+  const ctxProducts = useContext(ProductContext);
+  const products = ctxProducts.getProductsByCategory(props.category);
 
   return (
     <div className={props.classes}>

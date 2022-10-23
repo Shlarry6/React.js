@@ -1,26 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import ProductContext from "../../Store/product-context";
-// const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductDetail = (props) => {
-  // const [product, setProduct] = useState(defaultProduct);
   const ctxProduct = useContext(ProductContext);
-  // const [display, setDisplay] = useState();
+  const product = ctxProduct.getProduct(props.id);
 
-
-  // const getProductDataFromId = async () => {
-  //   try {
-  //     let response = await fetch(`https://dummyjson.com/products/${props.id}`);
-  //     response = await response.json();
-  //     setProduct(response);
-  //     setDisplay(response.images[2]);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   // const carouselNextImageHandler = () => {
-  //   let length = ctxProduct.product.images.length - 1;
+  //   let length = product.images.length - 1;
   //   console.log(product);
   //   if (product.images.indexOf(display) > length - 1) {
   //     setDisplay(() => {
@@ -42,10 +29,6 @@ const ProductDetail = (props) => {
   //     setDisplay(product.images[index - 1]);
   //   }
   // };
-
-  // useEffect(() => {
-  //   // getProductDataFromId();
-  // }, []);
 
   return (
     <div className="container-fluid pb-5">
@@ -83,7 +66,7 @@ const ProductDetail = (props) => {
 
         <div className="col-lg-7 h-auto mb-30">
           <div className="h-100 bg-light p-30">
-            <h3>{ctxProduct.product.title}</h3>
+            <h3>{product.title}</h3>
             <div className="d-flex mb-3">
               <div className="text-primary mr-2">
                 <small className="fas fa-star"></small>
@@ -94,8 +77,8 @@ const ProductDetail = (props) => {
               </div>
               <small className="pt-1">(99 Reviews)</small>
             </div>
-            <h3 className="font-weight-semi-bold mb-4">{`$${ctxProduct.product.price}.00`}</h3>
-            <p className="mb-4">{ctxProduct.product.description}</p>
+            <h3 className="font-weight-semi-bold mb-4">{`$${product.price}.00`}</h3>
+            <p className="mb-4">{product.description}</p>
             <div className="d-flex mb-3">
               <strong className="text-dark mr-3">Sizes:</strong>
               <form readOnly>
@@ -293,7 +276,7 @@ const ProductDetail = (props) => {
             <div className="tab-content">
               <div className="tab-pane fade show active" id="tab-pane-1">
                 <h4 className="mb-3">Product Description</h4>
-                <p>{ctxProduct.product.description}</p>
+                <p>{product.description}</p>
               </div>
               <div className="tab-pane fade" id="tab-pane-2">
                 <h4 className="mb-3">Additional Information</h4>

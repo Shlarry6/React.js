@@ -3,6 +3,7 @@ import ProductContext from "../../Store/product-context";
 
 const CategoryList = () => {
   const ctxProducts = useContext(ProductContext);
+  const categoryNames = ctxProducts.getCategories();
 
   return (
     <>
@@ -11,7 +12,7 @@ const CategoryList = () => {
           <span className="bg-secondary pr-3">Categories</span>
         </h2>
         <div className="row px-xl-5 pb-3">
-          {ctxProducts.categoryNames.map((category, index) => (
+          {categoryNames.map((category, index) => (
             <div className="col-lg-3 col-md-4 col-sm-6 pb-1" key={index}>
               <a
                 className="text-decoration-none"

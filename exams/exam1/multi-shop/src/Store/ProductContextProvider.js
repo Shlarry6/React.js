@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import ProductContext from "./product-context";
-const defaultProduct = { images: [], title: "", description: "" };
 
 const ProductContextProvider = (props) => {
-    const [categoryNames, setCategoryNames] = useState([]);
-    const [featured, setFeatured] = useState([]);
     const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState(defaultProduct);
-    // const [display, setDisplay] = useState(defaultProduct.images[0]);
 
+/* * * * * * * * * * * * * * Helper Functions Start* * * * * * * * * * * * * */
     const formatCategoryNames = (name) => {
         name = name.toString(); // converting name to string to avoid error with blow functions
         name = name.replace("-", " "); // replace dash with space
@@ -18,8 +14,6 @@ const ProductContextProvider = (props) => {
     const firstLetterCap = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1);
     };
-
-    // count products per category for display
     const countProductsByCategory = (category) => {
         let counter = 0;
         products.map((product) => {
@@ -29,9 +23,12 @@ const ProductContextProvider = (props) => {
         });
         return counter;
     };
+/* * * * * * * * * * * * * * Helper Functions END * * * * * * * * * * * * * */
     
+/* * * * * * * * * * * * * * Product and Category Functions START * * * * * * * * * * * * * */
     // function: loops through products adding 1 of each unique category to categoryNames.
-    const setCategoriesByProductsList = (productList) => {
+    const getCategories = () => {
+        let productList = getProductsFromSessionStorage();
         let categoriesArray = [];
         let productsByCategory = [];
         productList.map((product) => {
@@ -41,11 +38,11 @@ const ProductContextProvider = (props) => {
                 categoriesArray.push(product);
             };
         });
-        setCategoryNames(categoriesArray);
+        return categoriesArray;
     };
 
-    // setting featured products from productList saved from dummyjson.com
-    const setFeaturedProducts = (productList) => {
+    const getFeaturedProducts = () => {
+        let productList = getProductsFromSessionStorage();
         let featuredArray = [];
         let counter = 0;
         for (var i = 0; i < productList.length; i+= 7) {
@@ -54,50 +51,55 @@ const ProductContextProvider = (props) => {
                 counter++;
             };
         };
-        setFeatured(featuredArray);
+        return featuredArray;
     };
 
-    const setProductById = (id) => {
-        console.log("productID:", id);
-        let cProduct = products.filter(prod => prod.id === id);
-        console.log(cProduct);
-        setProduct(cProduct);
+    const getProduct = (id) => {
+        console.log(id);
+        let selectedProduct = products.filter(prod => prod.id === '8');
+        console.log(selectedProduct);
+        return selectedProduct;
     };
+
+    const getProductsByCategory = (category) => {
+        let prods = products.filter(prod => prod.category === category);
+        return prods;
+    };
+/* * * * * * * * * * * * * * Product and Category Functions End * * * * * * * * * * * * * */
 
     //API get request for all products from dummyjson.com
     const getProducts = async () => {
         try {
-            console.log(products.length);
-            if (products.length === 0) {
-                let prods = await fetch('https://dummyjson.com/products?limit=100');
-                prods = await prods.json();
-                setStates(prods.products);
-            };
+            let prods = await fetch('https://dummyjson.com/products?limit=100');
+            prods = await prods.json();
+            setProducts(prods.products);
+            sessionStorage.setItem("PRODUCTS", JSON.stringify(prods.products));
         } catch (error) {
             console.log(error);
         };
     };
-
-    const setStates = (products) => {
-        console.log("setting");
-        setProducts(products);
-        setCategoriesByProductsList(products);
-        setFeaturedProducts(products);
+  
+    const getProductsFromSessionStorage = () => {
+        if (!products.length > 0) {
+            console.log("makingAPIcall");
+            getProducts();
+        };
+        let data = sessionStorage.getItem("PRODUCTS");
+        return JSON.parse(data);
     };
 
     useEffect(() => {
-        getProducts();
+        getProductsFromSessionStorage();
     }, []);
 
     const productContext = {
-        categoryNames: categoryNames,
-        featuredProducts: featured,
         products: products,
-        product: product,
-        // display: display,
+        getCategories: getCategories,
+        getFeaturedProducts: getFeaturedProducts,
+        getProductsByCategory: getProductsByCategory,
+        getProduct: getProduct,
         formatCategoryNames: formatCategoryNames,
         countProductsByCategory: countProductsByCategory,
-        setProductById: setProductById
     };
 
     return (
