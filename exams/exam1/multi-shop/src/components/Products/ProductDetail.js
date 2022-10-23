@@ -81,7 +81,7 @@ const ProductDetail = (props) => {
             <p className="mb-4">{product.description}</p>
             <div className="d-flex mb-3">
               <strong className="text-dark mr-3">Sizes:</strong>
-              <form readOnly>
+              <form>
                 <div className="custom-control custom-radio custom-control-inline">
                   <input
                     type="radio"
@@ -141,7 +141,7 @@ const ProductDetail = (props) => {
             </div>
             <div className="d-flex mb-4">
               <strong className="text-dark mr-3">Colors:</strong>
-              <form readOnly>
+              <form>
                 <div className="custom-control custom-radio custom-control-inline">
                   <input
                     type="radio"
@@ -212,7 +212,7 @@ const ProductDetail = (props) => {
                 <input
                   type="text"
                   className="form-control bg-secondary border-0 text-center"
-                  value="1"
+                  defaultValue="1"
                 />
                 <div className="input-group-btn">
                   <button className="btn btn-primary btn-plus">
@@ -384,7 +384,7 @@ const ProductDetail = (props) => {
                         <i className="far fa-star"></i>
                       </div>
                     </div>
-                    <form readOnly>
+                    <form>
                       <div className="form-group">
                         <label htmlFor="message">Your Review *</label>
                         <textarea
@@ -409,7 +409,7 @@ const ProductDetail = (props) => {
                       <div className="form-group mb-0">
                         <input
                           type="submit"
-                          value="Leave Your Review"
+                          defaultValue="Leave Your Review"
                           className="btn btn-primary px-3"
                         />
                       </div>
