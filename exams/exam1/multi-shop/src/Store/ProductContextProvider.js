@@ -55,10 +55,8 @@ const ProductContextProvider = (props) => {
     };
 
     const getProduct = (id) => {
-        console.log(id);
-        let selectedProduct = products.filter(prod => prod.id === '8');
-        console.log(selectedProduct);
-        return selectedProduct;
+        let selected = products.filter(prod => prod.id === id);
+        return selected;
     };
 
     const getProductsByCategory = (category) => {

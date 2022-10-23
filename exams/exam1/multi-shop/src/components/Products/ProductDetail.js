@@ -1,34 +1,34 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ProductContext from "../../Store/product-context";
 
 const ProductDetail = (props) => {
   const ctxProduct = useContext(ProductContext);
+  const [display, setDisplay] = useState([]);
   const product = ctxProduct.getProduct(props.id);
 
-
-  // const carouselNextImageHandler = () => {
-  //   let length = product.images.length - 1;
-  //   console.log(product);
-  //   if (product.images.indexOf(display) > length - 1) {
-  //     setDisplay(() => {
-  //       return product.images[0];
-  //     });
-  //   } else {
-  //     let index = product.images.indexOf(display);
-  //     setDisplay(() => {
-  //       return product.images[index + 1];
-  //     });
-  //   }
-  // };
-  // const carouselPrevImageHandler = () => {
-  //   let length = product.images.length - 1;
-  //   if (product.images.indexOf(display) < 1) {
-  //     setDisplay(product.images[length - 1]);
-  //   } else {
-  //     let index = product.images.indexOf(display);
-  //     setDisplay(product.images[index - 1]);
-  //   }
-  // };
+  const carouselNextImageHandler = () => {
+    let length = product.images.length - 1;
+    console.log(product);
+    if (product.images.indexOf(display) > length - 1) {
+      setDisplay(() => {
+        return product.images[0];
+      });
+    } else {
+      let index = product.images.indexOf(display);
+      setDisplay(() => {
+        return product.images[index + 1];
+      });
+    }
+  };
+  const carouselPrevImageHandler = () => {
+    let length = product.images.length - 1;
+    if (product.images.indexOf(display) < 1) {
+      setDisplay(product.images[length - 1]);
+    } else {
+      let index = product.images.indexOf(display);
+      setDisplay(product.images[index - 1]);
+    }
+  };
 
   return (
     <div className="container-fluid pb-5">
@@ -49,7 +49,7 @@ const ProductDetail = (props) => {
               className="carousel-control-prev"
               href="#product-carousel"
               data-slide="prev"
-              // onClick={carouselPrevImageHandler}
+              onClick={carouselPrevImageHandler}
             >
               <i className="fa fa-2x fa-angle-left text-dark"></i>
             </a>
@@ -57,7 +57,7 @@ const ProductDetail = (props) => {
               className="carousel-control-next"
               href="#product-carousel"
               data-slide="next"
-              // onClick={carouselNextImageHandler}
+              onClick={carouselNextImageHandler}
             >
               <i className="fa fa-2x fa-angle-right text-dark"></i>
             </a>
