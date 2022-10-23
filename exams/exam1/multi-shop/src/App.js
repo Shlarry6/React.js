@@ -4,6 +4,8 @@ import CategoryList from "./components/Categories/CategoryList";
 import FeaturedProducts from "./components/Products/FeaturedProducts";
 import ProductsByCategory from "./components/Products/ProductsByCategory";
 import ProductDetail from "./components/Products/ProductDetail";
+import CategoryCarousel from './components/Categories/CategoryCarousel';
+import ContactForm from './components/ContactRequests/ContactForm';
 
 const App = () => {
   let content;
@@ -11,7 +13,16 @@ const App = () => {
   switch (window.location.pathname) {
     case "/":
       content = 
-        <FeaturedProducts />
+        <>
+          <CategoryCarousel />
+          <FeaturedProducts />
+        </>
+      break;
+    case "/contact":
+      content = 
+        <>
+          <ContactForm />
+        </>
       break;
     case "/categories":
       content = (
