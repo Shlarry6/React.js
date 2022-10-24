@@ -3,7 +3,7 @@ import React from 'react';
 const ContactContext = React.createContext({
     contactRequests: [],
     postContactRequest: () => {},
-    getContactRequests: () => {}
+    deleteRequest: () => {}
 });
 
 export default ContactContext;
