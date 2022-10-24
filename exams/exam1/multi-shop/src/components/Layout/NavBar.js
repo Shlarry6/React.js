@@ -38,7 +38,7 @@ const NavBar = () => {
                   <a href="/categories" className="nav-item nav-link">
                     Shop
                   </a>
-                  <a href="detail.html" className="nav-item nav-link">
+                  <a href="/" className="nav-item nav-link">
                     Shop Detail
                   </a>
                   <div className="nav-item dropdown">
@@ -50,16 +50,19 @@ const NavBar = () => {
                       Pages <i className="fa fa-angle-down mt-1"></i>
                     </a>
                     <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                      <a href="cart.html" className="dropdown-item">
+                      <a href="/" className="dropdown-item">
                         Shopping Cart
                       </a>
-                      <a href="checkout.html" className="dropdown-item">
+                      <a href="/" className="dropdown-item">
                         Checkout
                       </a>
                     </div>
                   </div>
                   <a href="/contact" className="nav-item nav-link">
                     Contact
+                  </a>
+                  <a href="/requests" className="nav-item nav-link">
+                    Requests
                   </a>
                 </div>
                 <div className="navbar-nav ml-auto py-0 d-none d-lg-block">

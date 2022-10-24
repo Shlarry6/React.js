@@ -13,7 +13,15 @@ const ContactContextProvider = (props) => {
                 message: eMessage,
                 timestamp: timeStamp
             });
-            console.log(response);
+        } catch (error) {
+            console.log(error);
+        };
+    };
+
+    const getContactRequests = async () => {
+        try {
+            let response = await axios.get("http://localhost:5000/contactRequests");
+            return response.data;
         } catch (error) {
             console.log(error);
         };
@@ -22,7 +30,8 @@ const ContactContextProvider = (props) => {
     return (
         <ContactContext.Provider value={{
             contactRequests: requests,
-            postContactRequest: postContactRequest
+            postContactRequest: postContactRequest,
+            getContactRequests: getContactRequests
         }}>
             {props.children}
         </ContactContext.Provider>

@@ -6,6 +6,8 @@ import ProductsByCategory from "./components/Products/ProductsByCategory";
 import ProductDetail from "./components/Products/ProductDetail";
 import CategoryCarousel from './components/Categories/CategoryCarousel';
 import ContactForm from './components/ContactRequests/ContactForm';
+import ContactContextProvider from './Store/ContactContextProvider';
+import RequestsList from './components/ContactRequests/RequestsList';
 
 const App = () => {
   let content;
@@ -18,11 +20,19 @@ const App = () => {
           <FeaturedProducts />
         </>
       break;
-    case "/contact":
+    case "/requests":
       content = 
         <>
-          <ContactForm />
+          <ContactContextProvider>
+            <RequestsList />
+          </ContactContextProvider>
         </>
+      break;
+    case "/contact":
+      content = 
+        <ContactContextProvider>
+          <ContactForm />
+        </ContactContextProvider>
       break;
     case "/categories":
       content = (

@@ -3,12 +3,12 @@ import ProductContext from "../../Store/product-context";
 
 const ProductDetail = (props) => {
   const ctxProduct = useContext(ProductContext);
-  const [display, setDisplay] = useState([]);
   const product = ctxProduct.getProduct(props.id);
+  const [display, setDisplay] = useState(product.images[0]);
+
 
   const carouselNextImageHandler = () => {
     let length = product.images.length - 1;
-    console.log(product);
     if (product.images.indexOf(display) > length - 1) {
       setDisplay(() => {
         return product.images[0];
@@ -42,7 +42,7 @@ const ProductDetail = (props) => {
           >
             <div className="carousel-inner bg-light">
               <div className="carousel-item active">
-                <img className="w-100 h-100" src={"#"} alt="Image" />
+                <img className="w-100 h-100" src={display} alt="Image" />
               </div>
             </div>
             <a

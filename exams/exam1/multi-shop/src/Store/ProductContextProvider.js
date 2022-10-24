@@ -28,7 +28,7 @@ const ProductContextProvider = (props) => {
 /* * * * * * * * * * * * * * Product and Category Functions START * * * * * * * * * * * * * */
     // function: loops through products adding 1 of each unique category to categoryNames.
     const getCategories = () => {
-        let productList = getProductsFromSessionStorage();
+        let productList = products;
         let categoriesArray = [];
         let productsByCategory = [];
         productList.map((product) => {
@@ -42,7 +42,7 @@ const ProductContextProvider = (props) => {
     };
 
     const getFeaturedProducts = () => {
-        let productList = getProductsFromSessionStorage();
+        let productList = products;
         let featuredArray = [];
         let counter = 0;
         for (var i = 0; i < productList.length; i+= 7) {
@@ -55,8 +55,9 @@ const ProductContextProvider = (props) => {
     };
 
     const getProduct = (id) => {
-        let selected = products.filter(prod => prod.id === id);
-        return selected;
+        let data = JSON.parse(sessionStorage.getItem("PRODUCTS"));
+        let selected = data.filter(prod => prod.id === parseInt(id));
+        return selected[0];
     };
 
     const getProductsByCategory = (category) => {
@@ -70,8 +71,8 @@ const ProductContextProvider = (props) => {
         try {
             let prods = await fetch('https://dummyjson.com/products?limit=100');
             prods = await prods.json();
-            setProducts(prods.products);
             sessionStorage.setItem("PRODUCTS", JSON.stringify(prods.products));
+            setProducts(prods.products);
         } catch (error) {
             console.log(error);
         };
