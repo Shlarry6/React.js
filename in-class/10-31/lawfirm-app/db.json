@@ -1,0 +1,62 @@
+{
+  "contactRequests": [
+    {
+      "firstName": "jelly",
+      "lastName": "belly",
+      "email": "hello@hello.com",
+      "message": "lkjasdlfjo\n",
+      "timestamp": "Wed Oct 05 2022 11:41:18 GMT-0600 (Mountain Daylight Time)",
+      "id": 1
+    }
+  ],
+  "featuredItems": [
+    {
+      "id": 1,
+      "img": "meeting.jpg",
+      "title": "Our lawyers",
+      "description": "Our website templates are created with inspiration, checked for quality and originality.",
+      "link": "index.html"
+    },
+    {
+      "id": 2,
+      "img": "handshake.jpg",
+      "title": "get to know us more",
+      "description": "Just browse through all our Free Website Templates and ﬁnd what you’re looking for.",
+      "link": "index.html"
+    },
+    {
+      "id": 3,
+      "img": "smile.jpg",
+      "title": "what we offer",
+      "description": "Join the discussion on our forum and meet other people in the community.",
+      "link": "index.html"
+    },
+    {
+      "id": 4,
+      "img": "family-small.jpg",
+      "title": "get in touch with us",
+      "description": "And we love the challenge of doing something diferent and something special.",
+      "link": "index.html"
+    }
+  ],
+  "practices": [
+    {
+      "id": 1,
+      "img": "prenuptial.jpg",
+      "title": "Prenuptial Agreement",
+      "description": "YIPPIE KAYEA"
+    },
+    {
+      "id": 2,
+      "img": "bride.jpg",
+      "title": "Marriage",
+      "description": "AYO LETS GO."
+    },
+    {
+      "id": 3,
+      "img": "divorce.jpg",
+      "title": "Divorce",
+      "description": "All good things come to an end."
+    }
+  ]
+}
