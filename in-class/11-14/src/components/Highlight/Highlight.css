@@ -1,0 +1,43 @@
+.highlight {
+	/* background: #eee url(../images/bg-highlight.jpg) repeat-x left bottom; */
+	background-color: #eee;
+	border-bottom: 1px solid #fff;
+}
+.highlight .clearfix {
+	width: 940px;
+}
+.highlight h1 {
+	font-size: 32px;
+	line-height: 36px;
+	padding: 12px 0 12px;
+	text-transform: none;
+}
+.highlight h2 {
+	color: #57614e;
+	margin-bottom: 24px;
+}
+.testimonial, .main, .sidebar > div h2, .sidebar ul li, .main > .section {
+	background-image: url(../../Assets/images/border.png);
+	background-position: left top;
+	background-repeat: repeat-y;
+}
+.testimonial {
+	float: right;
+	width: 260px;
+	margin-left: 20px;
+	padding: 24px 20px;
+}
+.testimonial > span {
+	color: #626262;
+	display: block;
+	font: 14px/24px Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+.promiseHide {
+	display: none;
+}
+
+.promiseShow {
+	display:block;
+}

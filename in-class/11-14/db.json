@@ -1,0 +1,127 @@
+{
+  "contactRequests": [
+    {
+      "firstName": "Santa",
+      "lastName": "Claus",
+      "email": "santa@claus.com",
+      "message": "Merry Christmas!",
+      "id": 5
+    },
+    {
+      "firstName": "Whiskey",
+      "lastName": "Throttle",
+      "email": "Fall@off.com",
+      "message": "ya bike",
+      "id": 6
+    }
+  ],
+  "featuredItems": [
+    {
+      "id": 1,
+      "title": "Our lawyers",
+      "text": "Our website templates are created with inspiration, checked for quality and originality.",
+      "image": "meeting.jpg",
+      "link": "index.html"
+    },
+    {
+      "id": 2,
+      "title": "Get to know us more",
+      "text": "Just browse through all our Free Website Templates and ﬁnd what you’re looking for..",
+      "image": "handshake.jpg",
+      "link": "index.html"
+    },
+    {
+      "id": 3,
+      "title": "What we offer",
+      "text": "Join the discussion on our forum and meet other people in the community.",
+      "image": "smile.jpg",
+      "link": "index.html"
+    },
+    {
+      "id": 4,
+      "title": "Get in touch with us",
+      "text": "And we love the challenge of doing something diferent and something special.",
+      "image": "family-small.jpg",
+      "link": "index.html"
+    }
+  ],
+  "news": [
+    {
+      "title": "The Basics of Marriage Laws",
+      "date": "January 31, 2021",
+      "author": "John Adams",
+      "text": "This is a news post about marriage laws.",
+      "image": "bride-sideview.jpg",
+      "id": 1
+    },
+    {
+      "title": "Happy Newly Divorced Women",
+      "date": "March 18, 2021",
+      "author": "Thomas Jefferson",
+      "text": "This is a post about moving on with your life.",
+      "image": "happy.jpg",
+      "id": 2
+    },
+    {
+      "title": "Children & Divorced Parents",
+      "date": "June 15, 2021",
+      "author": "George Washington",
+      "text": "How to help kids deal with parents' separation.",
+      "image": "children.jpg",
+      "id": 3
+    }
+  ],
+  "practices": [
+    {
+      "title": "Prenuptial Agreement",
+      "image": "prenuptial.jpg",
+      "description": "This is the description for prenuptial agreements.",
+      "id": 1
+    },
+    {
+      "title": "Marriage",
+      "image": "bride.jpg",
+      "description": "This is the description for Marriage.",
+      "id": 2
+    },
+    {
+      "title": "Divorce",
+      "image": "divorce.jpg",
+      "description": "This is the description for divorce.",
+      "id": 3
+    }
+  ],
+  "lawyers": {
+    "directors": [
+      {
+        "name": "Pauline H. Wilson",
+        "bio": "This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text.You can remove any link to our website from this website template",
+        "image": "thumbnail-sideview.jpg"
+      },
+      {
+        "name": "Kenneth E. Lundberg",
+        "bio": "You're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the Forums.",
+        "image": "thumbnail-focus.jpg"
+      }
+    ],
+    "senior associates": [
+      {
+        "name": "George R. Montgomery",
+        "bio": "This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text.You can remove any link to our website from this website template.",
+        "image": "thumbnail-smile.jpg"
+      }
+    ],
+    "associates": [
+      {
+        "name": "Denise M. Silvia",
+        "bio": "This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text.You can remove any link to our website from this website template.",
+        "image": "thumbnail-frontview.jpg"
+      },
+      {
+        "name": "Nancy R. Bakken",
+        "bio": "This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text.You can remove any link to our website from this website template.",
+        "image": "thumbnail-happy.jpg"
+      }
+    ]
+  }
+}
