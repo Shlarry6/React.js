@@ -1,0 +1,33 @@
+.message label {
+	color: #626262;
+	display: block;
+	font: 13px/24px Arial, Helvetica, sans-serif;
+}
+.message input[type='text'] {
+	height: 24px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+}
+.message textarea {
+	height: 110px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+	overflow: auto;
+	resize: none;
+}
+.message input[type='submit'] {
+	cursor: pointer;
+	border: none;
+}
+
+.invalid {
+	border-color: red;
+	border-width: 4px;
+	border-radius: 5px;
+	background-image: linear-gradient(to right, white, lightgrey, white);
+}
+.valid {
+	border-color: black
+}
